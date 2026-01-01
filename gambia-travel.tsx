@@ -530,7 +530,12 @@ export default function Component() {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground mb-2">Speak with our travel experts</p>
-                <p className="font-semibold">+220 123 4567</p>
+                <a
+                  href="tel:+2201234567"
+                  className="font-semibold hover:text-primary hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                >
+                  +220 123 4567
+                </a>
               </CardContent>
             </Card>
 
@@ -541,7 +546,12 @@ export default function Component() {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-muted-foreground mb-2">Get detailed information</p>
-                <p className="font-semibold">info@discovergambia.com</p>
+                <a
+                  href="mailto:info@discovergambia.com"
+                  className="font-semibold hover:text-primary hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                >
+                  info@discovergambia.com
+                </a>
               </CardContent>
             </Card>
 
@@ -627,8 +637,22 @@ export default function Component() {
             <div>
               <h4 className="font-semibold mb-4">Contact Info</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>+220 123 4567</li>
-                <li>info@discovergambia.com</li>
+                <li>
+                  <a
+                    href="tel:+2201234567"
+                    className="hover:text-primary hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                  >
+                    +220 123 4567
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:info@discovergambia.com"
+                    className="hover:text-primary hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                  >
+                    info@discovergambia.com
+                  </a>
+                </li>
                 <li>Banjul, The Gambia</li>
               </ul>
             </div>
