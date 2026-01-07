@@ -22,6 +22,69 @@ import Image from "next/image"
 import Link from "next/link"
 import { BackToTop } from "@/components/back-to-top"
 
+const ATTRACTIONS = [
+  {
+    title: "River Gambia National Park",
+    image: "/placeholder.svg?height=200&width=400",
+    badge: "Wildlife",
+    icon: TreePine,
+    description: "Home to hippos, crocodiles, and over 270 bird species along the majestic Gambia River",
+    time: "Full Day",
+    timeIcon: Clock,
+    rating: "4.8/5",
+  },
+  {
+    title: "Atlantic Coast Beaches",
+    image: "/placeholder.svg?height=200&width=400",
+    badge: "Beaches",
+    icon: Waves,
+    description: "Pristine golden beaches perfect for relaxation, water sports, and stunning sunsets",
+    time: "Year Round",
+    timeIcon: Sun,
+    rating: "4.9/5",
+  },
+  {
+    title: "Abuko Nature Reserve",
+    image: "/placeholder.svg?height=200&width=400",
+    badge: "Birdwatching",
+    icon: Bird,
+    description: "A birdwatcher's paradise with over 300 species including rare and endemic birds",
+    time: "Half Day",
+    timeIcon: Clock,
+    rating: "4.7/5",
+  },
+  {
+    title: "Juffureh Village",
+    image: "/placeholder.svg?height=200&width=400",
+    badge: "Culture",
+    icon: Users,
+    description: "Historic village made famous by Alex Haley's \"Roots\" - experience authentic Gambian culture",
+    time: "Half Day",
+    timeIcon: Clock,
+    rating: "4.6/5",
+  },
+  {
+    title: "Stone Circles of Senegambia",
+    image: "/placeholder.svg?height=200&width=400",
+    badge: "UNESCO",
+    icon: MapPin,
+    description: "UNESCO World Heritage site featuring mysterious ancient stone circles dating back 1,200 years",
+    time: "Full Day",
+    timeIcon: Clock,
+    rating: "4.5/5",
+  },
+  {
+    title: "Serrekunda Market",
+    image: "/placeholder.svg?height=200&width=400",
+    badge: "Shopping",
+    icon: Users,
+    description: "Vibrant local market offering traditional crafts, textiles, and authentic Gambian experiences",
+    time: "2-3 Hours",
+    timeIcon: Clock,
+    rating: "4.4/5",
+  },
+]
+
 export default function Component() {
   return (
     <div className="min-h-screen bg-background">
@@ -118,188 +181,41 @@ export default function Component() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="overflow-hidden">
-              <div className="relative h-48">
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="River Gambia National Park"
-                  fill
-                  className="object-cover"
-                />
-                <Badge className="absolute top-4 left-4">Wildlife</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <TreePine className="h-5 w-5" />
-                  River Gambia National Park
-                </CardTitle>
-                <CardDescription>
-                  Home to hippos, crocodiles, and over 270 bird species along the majestic Gambia River
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    Full Day
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    4.8/5
-                  </span>
+            {ATTRACTIONS.map((attraction, index) => (
+              <Card key={index} className="overflow-hidden">
+                <div className="relative h-48">
+                  <Image
+                    src={attraction.image}
+                    alt={attraction.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <Badge className="absolute top-4 left-4">{attraction.badge}</Badge>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden">
-              <div className="relative h-48">
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Atlantic Coast Beaches"
-                  fill
-                  className="object-cover"
-                />
-                <Badge className="absolute top-4 left-4">Beaches</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Waves className="h-5 w-5" />
-                  Atlantic Coast Beaches
-                </CardTitle>
-                <CardDescription>
-                  Pristine golden beaches perfect for relaxation, water sports, and stunning sunsets
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Sun className="h-4 w-4" />
-                    Year Round
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    4.9/5
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden">
-              <div className="relative h-48">
-                <Image src="/placeholder.svg?height=200&width=400" alt="Bird Watching" fill className="object-cover" />
-                <Badge className="absolute top-4 left-4">Birdwatching</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Bird className="h-5 w-5" />
-                  Abuko Nature Reserve
-                </CardTitle>
-                <CardDescription>
-                  A birdwatcher's paradise with over 300 species including rare and endemic birds
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    Half Day
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    4.7/5
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden">
-              <div className="relative h-48">
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  alt="Juffureh Village"
-                  fill
-                  className="object-cover"
-                />
-                <Badge className="absolute top-4 left-4">Culture</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  Juffureh Village
-                </CardTitle>
-                <CardDescription>
-                  Historic village made famous by Alex Haley's "Roots" - experience authentic Gambian culture
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    Half Day
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    4.6/5
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden">
-              <div className="relative h-48">
-                <Image src="/placeholder.svg?height=200&width=400" alt="Stone Circles" fill className="object-cover" />
-                <Badge className="absolute top-4 left-4">UNESCO</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5" />
-                  Stone Circles of Senegambia
-                </CardTitle>
-                <CardDescription>
-                  UNESCO World Heritage site featuring mysterious ancient stone circles dating back 1,200 years
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    Full Day
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    4.5/5
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="overflow-hidden">
-              <div className="relative h-48">
-                <Image src="/placeholder.svg?height=200&width=400" alt="Local Markets" fill className="object-cover" />
-                <Badge className="absolute top-4 left-4">Shopping</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  Serrekunda Market
-                </CardTitle>
-                <CardDescription>
-                  Vibrant local market offering traditional crafts, textiles, and authentic Gambian experiences
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    2-3 Hours
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    4.4/5
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <attraction.icon className="h-5 w-5" />
+                    {attraction.title}
+                  </CardTitle>
+                  <CardDescription>
+                    {attraction.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <attraction.timeIcon className="h-4 w-4" />
+                      {attraction.time}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      {attraction.rating}
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
